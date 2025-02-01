@@ -1,6 +1,6 @@
 name: libsql-laravel-segfault
 php: '8.3'
-secured: true
+secured: false
 aliases: {  }
 services: {  }
 integrations:

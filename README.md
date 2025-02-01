@@ -27,6 +27,18 @@ Prerequisites:
 - Laravel CLI
 - FFI enabled in the php.ini
 
+1. Check out the repository
+2. Run `composer install`
+3. Copy `.env.example` to `.env` if that wasn't done for you
+4. Run `herd init` and `herd link`
+5. Visit http://libsql-laravel-segfault.test
+
+### CLI
+
+Serve the application using `php artisan serve` and open http://localhost:8000
+
+### Creating the repo
+
 The steps I took to get a reproducable example is as follows:
 
 1. Run `laravel new`
@@ -45,21 +57,3 @@ The steps I took to get a reproducable example is as follows:
 5. Set `DB_CONNECTION=libsql` in `.env`
 6. Add a `libsql` connection in `config/database.php`, use `sqlite` as a template, adjust the default `DB_DATABASE` value
 7. Run `php artisan migrate` (this will succeed)
-
-### FPM (Herd)
-
-Link the application to Herd:
-
-```sh
-herd link
-```
-
-Open http://libsql-laravel-segfault.test in your browser
-
-Nginx will report a 502 Bad Gateway
-
-### CLI
-
-Serve the application using `php artisan serve` and open http://localhost:8000
-
-The connection will fail
